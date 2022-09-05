@@ -8,3 +8,4 @@ https://www.evounce.ch).
 
 All information, documentation and developer guidelines are available on the [official lightcase plugin website](
 https://cornel.bopp-art.com/lightcase/).
+
