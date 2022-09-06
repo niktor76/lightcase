@@ -2,51 +2,53 @@
 
 <head>
 	<link type="text/css" rel="stylesheet" href="style.css">
+	<style>
+		body {
+			font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+			font-size: 18px;
+			line-height: 1.42857143;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+
+		.contain {
+			margin: 20px auto;
+			padding: 0 200px;
+			max-width: 1000px;
+		}
+
+		pre {
+			font-family: monospace;
+			font-size: 16px;
+			line-height: 1.42857143;
+			color: #333;
+			margin: 0;
+			padding: 0;
+			background-color: #f5f5f5;
+		}
+
+		h3 {
+			font-size: 24px;
+			color: blue;
+		}
+
+		h4 {
+			font-size: 22px;
+			color: rgb(84, 84, 255);
+		}
+
+		h5 {
+			font-size: 20px;
+			color: rgb(97, 97, 249);
+		}
+	</style>
 </head>
-<style>
-	body {
-		font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-		font-size: 18px;
-		line-height: 1.42857143;
-		color: #333;
-		margin: 0;
-		padding: 0;
-	}
 
-	.contain {
-		margin: 20px auto;
-		padding: 0 200px;
-		max-width: 1000px;
-	}
-
-	pre {
-		font-family: monospace;
-		font-size: 16px;
-		line-height: 1.42857143;
-		color: #333;
-		margin: 0;
-		padding: 0;
-		background-color: #f5f5f5;
-	}
-
-	h3 {
-		font-size: 24px;
-		color: blue;
-	}
-
-	h4 {
-		font-size: 22px;
-		color: rgb(84, 84, 255);
-	}
-
-	h5 {
-		font-size: 20px;
-		color: rgb(97, 97, 249);
-	}
-</style>
-
-<body style="/* display: none; */" data-icon-font="icomoon" data-ui="stripe" <!-- Header -->
+<body style="/* display: none; */" data-icon-font="icomoon" data-ui="stripe"
+	<!-- Header -->
 	<header class="stripe">
+
 		<a href="#" class="navigation-trigger icon-menu"></a>
 
 		<div class="contain">
@@ -73,9 +75,9 @@
 			<p>First of all - <a href="#download">download the source files</a>, extract the archive and then upload the
 				entire folder to your preferred location on your web server.<br>Then, just include the JavaScript/CSS files and
 				follow the steps described in the section be from low. You also can have a look at the examples on <a
-					href="/web/20180226021723/https://cornel.bopp-art.com/lightcase/#demo">demo page</a> and how they are
+					href="/web/20181228124120/http://cornel.bopp-art.com/lightcase/#demo">demo page</a> and how they are
 				initialized. This can be figured out by checking the <a
-					href="/web/20180226021723/https://cornel.bopp-art.com/lightcase/project/js/lightcase.init.js"
+					href="/web/20181228124120/http://cornel.bopp-art.com/lightcase/project/js/lightcase.init.js"
 					target="_blank">lightcase.init.js</a> file. (Note: lightcase.init.js is not part of the lightcase plugin
 				itself!)</p>
 
@@ -83,29 +85,43 @@
 				<h5 id="basic-setup">Basic setup</h5>
 				<p>Step 1: Lightcase is based on the jQuery framework, so first you have to load this library.</p>
 				<pre class="prettyprint linenums showcase-code">&lt;script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"&gt;&lt;/script&gt;
-	</pre>
+		</pre>
 				<p>Step 2: Now, include the CSS and JavaScript files for Lightcase.</p>
 				<pre class="prettyprint linenums showcase-code">&lt;link rel="stylesheet" type="text/css" href="path/to/lightcase.css"&gt;
-	&lt;script type="text/javascript" src="path/to/lightcase.js"&gt;&lt;/script&gt;
-	</pre>
+		&lt;script type="text/javascript" src="path/to/lightcase.js"&gt;&lt;/script&gt;
+		</pre>
 				<p>Step 3: After including those files you have to define which links you want to open in Lightcase. Here we are
 					using a wildcard selector for selecting all links which have an attribute "data-rel" beginning with
 					"lightcase".</p>
 				<pre class="prettyprint linenums showcase-code">&lt;script type="text/javascript"&gt;
-		jQuery(document).ready(function($) {
-			$('a[data-rel^=lightcase]').lightcase();
-		});
-	&lt;/script&gt;
-	</pre>
+			jQuery(document).ready(function($) {
+				$('a[data-rel^=lightcase]').lightcase();
+			});
+		&lt;/script&gt;
+		</pre>
 				<p>Step 4: To open your media with Lightcase, create a link and add the attribute data-rel="lightcase".</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.jpg" data-rel="lightcase"&gt;Your link description or thumb&lt;/a&gt;
-	</pre>
+		</pre>
 
 				<br>
 				<h5 id="display-title" class="text-left">Display title</h5>
-				<p>In case you want to add a title, simply extend your link tag with the attribute title="Your title".</p>
+				<p>In case you want to add a title, simply extend your link tag with the attribute title="Your title" or
+					data-lc-title="Your title".</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.jpg" data-rel="lightcase" title="Your title"&gt;Your link description or thumb&lt;/a&gt;
-	</pre>
+		</pre>
+
+				<br>
+				<h5 id="display-caption" class="text-left">Display caption</h5>
+				<p>In case you want to add a caption text, extend your link tag with the attribute data-lc-caption="Your title".
+				</p>
+				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.jpg" data-rel="lightcase" data-lc-caption="Your caption"&gt;Your link description or thumb&lt;/a&gt;
+		</pre>
+				<p>For images, the attribute 'alt' will be used as default for the caption text inside lightcase.
+				</p>
+				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.jpg" data-rel="lightcase"&gt;
+			&lt;img src="your/path/to/img.jpg" alt="This is the default caption text"&gt;
+		&lt;/a&gt;
+		</pre>
 
 				<br>
 				<h5 id="videos" class="text-left">Videos</h5>
@@ -113,15 +129,15 @@
 					to place it as HTML5 video which will be referred as type 'video' by lightcase. Of course, it is also possible
 					to present external videos from Youtube, Vimeo or other video platforms, or as Adobe Flash video.</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.mp4" data-rel="lightcase"&gt;HTML5 video&lt;/a&gt;
-	&lt;a href="//www.youtube.com/embed/6v2L2UGZJAM?version=3" data-rel="lightcase"&gt;Youtube video&lt;/a&gt;
-	&lt;a href="path/to/media.swf" data-rel="lightcase"&gt;Flash video&lt;/a&gt;
-	</pre>
+		&lt;a href="//www.youtube.com/embed/6v2L2UGZJAM?version=3" data-rel="lightcase"&gt;Youtube video&lt;/a&gt;
+		&lt;a href="path/to/media.swf" data-rel="lightcase"&gt;Flash video&lt;/a&gt;
+		</pre>
 
 				<p>Different video file formats can be provided using the attribute 'data-lc-href' and have best browser
 					support. Lightcase will do the rest and pick the one with the most presumable support of the actual browser.
 					Note: Sources are delimited using comma. (since v2.4.0)</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="" data-lc-href="path/to/media.mp4, path/to/media.webm, path/to/media.ogg" data-rel="lightcase"&gt;HTML5 video using different file formats&lt;/a&gt;
-	</pre>
+		</pre>
 
 				<br>
 				<h5 id="source-sets" class="text-left">Source sets</h5>
@@ -129,30 +145,30 @@
 					use the following notation below. There is no limitation for sources as well as a combination with viewport
 					and density (Device Pixel Ratio) is possible. Note: Sources are delimited using comma. (since v2.3.0)</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="" data-lc-href="path/to/media1_small.jpg, path/to/media1_large.jpg 2x" data-rel="lightcase"&gt;Your link description or thumb&lt;/a&gt;
-	&lt;a href="" data-lc-href="path/to/media2_default.jpg, path/to/media2_small.jpg 320w, path/to/media2_small_2x.jpg 320w 2x" data-rel="lightcase"&gt;Link&lt;/a&gt;
-	</pre>
+		&lt;a href="" data-lc-href="path/to/media2_default.jpg, path/to/media2_small.jpg 320w, path/to/media2_small_2x.jpg 320w 2x" data-rel="lightcase"&gt;Link&lt;/a&gt;
+		</pre>
 				<br>
 				<h5 id="collections" class="text-left">Collections</h5>
 				<p>Couple of links with same attribute will open all of them as a collection.</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media1.jpg" data-rel="lightcase:myCollection"&gt;Your link description or thumb&lt;/a&gt;
-	&lt;a href="path/to/media2.jpg" data-rel="lightcase:myCollection"&gt;Your second collection item&lt;/a&gt;
-	&lt;a href="path/to/media3.jpg" data-rel="lightcase:myCollection"&gt;Your third item, and so on...&lt;/a&gt;
-	</pre>
+		&lt;a href="path/to/media2.jpg" data-rel="lightcase:myCollection"&gt;Your second collection item&lt;/a&gt;
+		&lt;a href="path/to/media3.jpg" data-rel="lightcase:myCollection"&gt;Your third item, and so on...&lt;/a&gt;
+		</pre>
 
 				<p>Within collections it is also possible to use various categories which can make your collections much more
 					powerful. Lightcase looks for matching categories within a certain collection and will show them separated
 					depending on the link was clicked to invoke Lightcase. Note: Categories are delimited using spaces. (since
 					v2.2.0)</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media1.jpg" data-rel="lightcase:myCollection" data-lc-categories="myCategory1 myCategory2"&gt;Your link description or thumb&lt;/a&gt;
-	&lt;a href="path/to/media2.jpg" data-rel="lightcase:myCollection" data-lc-categories="myCategory1"&gt;Your second collection item&lt;/a&gt;
-	&lt;a href="path/to/media3.jpg" data-rel="lightcase:myCollection" data-lc-categories="myCategory2 myCategory3 myCategory4"&gt;Your third item, and so on...&lt;/a&gt;
-	</pre>
+		&lt;a href="path/to/media2.jpg" data-rel="lightcase:myCollection" data-lc-categories="myCategory1"&gt;Your second collection item&lt;/a&gt;
+		&lt;a href="path/to/media3.jpg" data-rel="lightcase:myCollection" data-lc-categories="myCategory2 myCategory3 myCategory4"&gt;Your third item, and so on...&lt;/a&gt;
+		</pre>
 
 				<br>
 				<h5 id="slideshow" class="text-left">Slideshow</h5>
 				<p>Collections with trailing ":slideshow" in the attribute 'data-rel' will open them as a slideshow.</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"&gt;Your link description or thumb&lt;/a&gt;
-	</pre>
+		</pre>
 
 			</div>
 
@@ -163,94 +179,106 @@
 				<p>Lightcase provides various options to customize and override defaults. All possible options are described in
 					section <a href="#api">API</a>.</p>
 				<pre class="prettyprint linenums showcase-code">$('a[data-rel=lightcase:myCollection:slideshow]').lightcase({
-		transition: 'scrollHorizontal',
-		showSequenceInfo: false,
-		showTitle: false
-	});</pre>
+			transition: 'scrollHorizontal',
+			showSequenceInfo: false,
+			showTitle: false
+		});</pre>
 				<p>Alternatively, it is even possible to apply you options directly with a tag attribute. (since v2.3.5)</p>
 				<pre class="prettyprint linenums showcase-code">&lt;a href="path/to/media.jpg" data-lc-options='{"maxWidth":440, "maxHeight":550}' data-rel="lightcase"&gt;Your link description&lt;/a&gt;
-	</pre>
+		</pre>
 				<h5 id="hooks" class="text-left">Hooks</h5>
 				<p>There are several functions to intervene into the process Lightcase is doing until the content gets
 					displayed. This may could be useful if you want to manipulate the standard process of Lightcase like
 					pre-validating a form, changing something in the markup or anything else you could imagine.</p>
 				<pre class="prettyprint linenums showcase-code">$('a[data-rel=lightcase]').lightcase({
-		// Would be called immediately after lightcase is initialized
-		onInit : {
-			foo: function() {
-				alert('Lightcase process is initialized');
+			// Will be called immediately after lightcase is initialized
+			onInit : {
+				foo: function() {
+					alert('Lightcase process is initialized');
+				}
+			},
+			// Will be called before generating content
+			onStart : {
+				bar: function() {
+					alert('Lightcase process is started');
+				}
+			},
+			// Will be called right before new dimensions get calculated
+			onBeforeCalculateDimensions : {
+				baz: function() {
+					alert('Lightcase process is calculating new dimensions');
+				}
+			},
+			// Will be called right after new dimensions were calculated
+			onAfterCalculateDimensions : {
+				qux: function() {
+					alert('Lightcase process has calculated new dimensions');
+				}
+			},
+			// Will be called right before the content will be displayed
+			onBeforeShow : {
+				quux: function() {
+					alert('Lightcase process will show the content now');
+				}
+			},
+			// Will be called after everything is loaded and visible
+			onFinish : {
+				corge: function() {
+					alert('Lightcase process has finished');
+				}
+			},
+			// Will be called when aborting lightcase
+			onClose : {
+				grault: function() {
+					alert('Lightcase closes now');
+				}
+			},
+			// Will be called when lightcase does the cleanup
+			onCleanup : {
+				garply: function() {
+					alert('Lightcase process is cleaning up');
+				}
 			}
-		},
-		// Would be called before generating content
-		onStart : {
-			bar: function() {
-				alert('Lightcase process is started');
-			}
-		},
-		// Would be called right before dimensions get calculated
-		onCalculateDimensions : {
-			baz: function() {
-				alert('Lightcase process is calculating dimensions');
-			}
-		},
-		// Would be called right before showing the content
-		onFinish : {
-			quz: function() {
-				alert('Lightcase process is finished');
-			}
-		},
-		// Would be called when aborting lightcase
-		onClose : {
-			quux: function() {
-				alert('Lightcase closes now');
-			}
-		},
-		// Would be called when lightcase does the cleanup
-		onCleanup : {
-			corge: function() {
-				alert('Lightcase process is cleaned up');
-			}
-		}
-	});</pre>
+		});</pre>
 				<p>How can I access all the DOM objects/elements of lightcase from e.g. within such a hook function above?</p>
 				<pre class="prettyprint linenums showcase-code">// All public available objects and methods
-	console.log(lightcase);
-	
-	// Get the origin link object as a jQuery ready object
-	console.debug($(this));
-	
-	// Get a specific Lightcase DOM object (since v2.3.0)
-	console.debug(lightcase.get('case'));
-	</pre>
+		console.log(lightcase);
+		
+		// Get the origin link object as a jQuery ready object
+		console.debug($(this));
+		
+		// Get a specific Lightcase DOM object (since v2.3.0)
+		console.debug(lightcase.get('case'));
+		</pre>
 				<br>
 
 				<p>How can I open Lightcase in a blank popup?</p>
 				<pre class="prettyprint linenums showcase-code">// With javascript only and without any trigger link
-	lightcase.start({
-		href: '#',
-		// more options like width, height, etc.
-	});
-	
-	// From a simple link within markup
-	&lt;a href="#" data-rel="lightcase"&gt;Open blank popup&lt;/a&gt;
-	</pre>
+		lightcase.start({
+			href: '#',
+			// more options like width, height, etc.
+		});
+		
+		// From a simple link within markup
+		&lt;a href="#" data-rel="lightcase"&gt;Open blank popup&lt;/a&gt;
+		</pre>
 				<br>
 
 				<p>How can I close Lightcase via function?</p>
 				<pre class="prettyprint linenums showcase-code">// Call public function to close lightcase
-	lightcase.close();
-	
-	// Example for automatically closing lightcase after five seconds using a hook function
-	$('#foo').lightcase({
-		onFinish: {
-			autoClose: function () {
-				setTimeout(function () {
-					lightcase.close();
-				}, 5000);
+		lightcase.close();
+		
+		// Example for automatically closing lightcase after five seconds using a hook function
+		$('#foo').lightcase({
+			onFinish: {
+				autoClose: function () {
+					setTimeout(function () {
+						lightcase.close();
+					}, 5000);
+				}
 			}
-		}
-	});
-	</pre>
+		});
+		</pre>
 				<br>
 
 				<h5 id="resize" class="text-left">Resize</h5>
@@ -258,7 +286,11 @@
 					change, manipulate your content within the box, you're also able to initialize a recalculation of your content
 					size. Use this call as soon as you did modifications with the current Lightcase content.</p>
 				<pre class="prettyprint linenums showcase-code">lightcase.resize();
-	</pre>
+		</pre>
+				<p>If passing a custom size, lightcase will update resize with the new size and keep that size instead. (since
+					v2.5.0)</p>
+				<pre class="prettyprint linenums showcase-code">lightcase.resize({ width: 640 });
+		</pre>
 			</div>
 
 			<br>
@@ -271,8 +303,8 @@
 				<pre
 					class="prettyprint linenums showcase-code">&lt;script type="text/javascript" src="path/to/jquery.events.touch.js"&gt;&lt;/script&gt;</pre>
 				<pre class="prettyprint linenums showcase-code">$('a[data-rel^=lightcase]').lightcase({
-		swipe: true
-	});</pre>
+			swipe: true
+		});</pre>
 				<br>
 				<h5 id="fullscreen-mode-for-mobile" class="text-left">Fullscreen mode for mobile</h5>
 				<p>There is an extra feature to use the full width for mobile devices only without respecting the
@@ -520,6 +552,17 @@
 						<td class="last" data-title="Description">Starting slideshow automatically. (since v2.3.5)</td>
 					</tr>
 					<tr>
+						<td id="property-slideshow" class="first" data-title="Property">breakBeforeShow</td>
+						<td data-title="Type">Boolean</td>
+						<td data-title="Default">
+							<pre>false</pre>
+						</td>
+						<td class="last" data-title="Description">Breaks the process before showing the content. This setting can be
+							very helpful in terms of e.g. waiting for data-binding compilers, or interacting into general process
+							before displaying the content that was loaded by lightcase. Note, that you manually have to call the show
+							function `lightcase.show()`. (since v2.5.0)</td>
+					</tr>
+					<tr>
 						<td id="property-timeout" class="first" data-title="Property">timeout</td>
 						<td data-title="Type">Integer</td>
 						<td data-title="Default">
@@ -613,8 +656,8 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>width : 'auto',
-	height : 'auto'
-		</pre>
+		height : 'auto'
+			</pre>
 						</td>
 						<td class="last" data-title="Description">Options would be passed to the inline element.</td>
 					</tr>
@@ -623,11 +666,11 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>width : 'auto',
-	height : 'auto',
-	type : 'get',
-	dataType : 'html',
-	data : {}
-		</pre>
+		height : 'auto',
+		type : 'get',
+		dataType : 'html',
+		data : {}
+			</pre>
 						</td>
 						<td class="last" data-title="Description">
 							Option would be passed to the ajax element. (since v1.3.0)<br>
@@ -641,9 +684,9 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>width : 'auto',
-	height : 'auto',
-	frameborder : 0
-		</pre>
+		height : 'auto',
+		frameborder : 0
+			</pre>
 						</td>
 						<td class="last" data-title="Description">Options would be passed to the iframe element.</td>
 					</tr>
@@ -652,9 +695,9 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>width : 400,
-	height : 205,
-	wmode : 'transparent'
-		</pre>
+		height : 205,
+		wmode : 'transparent'
+			</pre>
 						</td>
 						<td class="last" data-title="Description">Options would be passed to the flash element.</td>
 					</tr>
@@ -663,14 +706,14 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>width : 400,
-	height : 225,
-	poster : '',
-	preload : 'auto',
-	controls : true,
-	autobuffer : true,
-	autoplay : true,
-	loop : false
-		</pre>
+		height : 225,
+		poster : '',
+		preload : 'auto',
+		controls : true,
+		autobuffer : true,
+		autoplay : true,
+		loop : false
+			</pre>
 						</td>
 						<td class="last" data-title="Description">Options would be passed to the video element.</td>
 					</tr>
@@ -706,12 +749,12 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>'image' : 'jpg,…',
-	'flash' : 'swf',
-	'video' : 'mp4,...',
-	'iframe' : 'html,...',
-	'ajax' : 'txt',
-	'inline' : '#'
-		</pre>
+		'flash' : 'swf',
+		'video' : 'mp4,...',
+		'iframe' : 'html,...',
+		'ajax' : 'txt',
+		'inline' : '#'
+			</pre>
 						</td>
 						<td class="last" data-title="Description">Mapping for the media types. (since v1.4.0)</td>
 					</tr>
@@ -728,13 +771,13 @@
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
 							<pre>'errorMessage': 'Source could not be found...',
-	'sequenceInfo.of': ' of ',
-	'close': 'Close',
-	'navigator.prev': 'Prev',
-	'navigator.next': 'Next',
-	'navigator.play': 'Play',
-	'navigator.pause': 'Pause'
-		</pre>
+		'sequenceInfo.of': ' of ',
+		'close': 'Close',
+		'navigator.prev': 'Prev',
+		'navigator.next': 'Next',
+		'navigator.play': 'Play',
+		'navigator.pause': 'Pause'
+			</pre>
 						</td>
 						<td class="last" data-title="Description">Texts for several labels. (since v2.3.3)</td>
 					</tr>
@@ -743,8 +786,8 @@
 						<td data-title="Type">Function</td>
 						<td data-title="Default">
 							<pre>function() {
-	 $('body').append(...
-	}</pre>
+		 $('body').append(...
+		}</pre>
 						</td>
 						<td class="last" data-title="Description">Browse the whole the function in the source file 'lightcase.js'.
 						</td>
@@ -755,8 +798,8 @@
 						<td data-title="Default">
 							<pre>{foo: function () {}}</pre>
 						</td>
-						<td class="last" data-title="Description">Hook object containing functions which would be executed before
-							initializing the whole process. (since v1.6.0)</td>
+						<td class="last" data-title="Description">Functions which will be executed before initializing the whole
+							process. (since v1.6.0)</td>
 					</tr>
 					<tr>
 						<td id="property-onStart" class="first" data-title="Property">onStart</td>
@@ -764,35 +807,63 @@
 						<td data-title="Default">
 							<pre>{bar: function () {}}</pre>
 						</td>
-						<td class="last" data-title="Description">Hook object containing functions which would be executed before
-							generating content.</td>
+						<td class="last" data-title="Description">Functions which will be executed before generating content.</td>
+					</tr>
+					<tr>
+						<td id="property-onBeforeCalculateDimensions" class="first" data-title="Property">
+							onBeforeCalculateDimensions</td>
+						<td data-title="Type">Object</td>
+						<td data-title="Default">
+							<pre>{baz: function () {}}</pre>
+						</td>
+						<td class="last" data-title="Description">Functions which will be executed before calculating the
+							dimensions. (since v2.5.0)</td>
+					</tr>
+					<tr>
+						<td id="property-onAfterCalculateDimensions" class="first" data-title="Property">onAfterCalculateDimensions
+						</td>
+						<td data-title="Type">Object</td>
+						<td data-title="Default">
+							<pre>{qux: function () {}}</pre>
+						</td>
+						<td class="last" data-title="Description">Functions which will be executed after calculating the dimensions.
+							(since v2.5.0)</td>
+					</tr>
+					<tr>
+						<td id="property-onBeforeShow" class="first" data-title="Property">onBeforeShow</td>
+						<td data-title="Type">Object</td>
+						<td data-title="Default">
+							<pre>{quux: function () {}}</pre>
+						</td>
+						<td class="last" data-title="Description">Functions which will be executed before showing the content.
+							(since v2.5.0)</td>
 					</tr>
 					<tr>
 						<td id="property-onFinish" class="first" data-title="Property">onFinish</td>
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
-							<pre>{baz: function () {}}</pre>
+							<pre>{corge: function () {}}</pre>
 						</td>
-						<td class="last" data-title="Description">Hook object containing functions which would be executed after
-							generating content.</td>
+						<td class="last" data-title="Description">Functions which will be executed if everything is loaded and
+							visible.</td>
 					</tr>
 					<tr>
 						<td id="property-onClose" class="first" data-title="Property">onClose</td>
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
-							<pre>{qux: function () {}}</pre>
+							<pre>{grault: function () {}}</pre>
 						</td>
-						<td class="last" data-title="Description">Hook object containing functions which would be executed right
-							before aborting. (since v2.1.0)</td>
+						<td class="last" data-title="Description">Functions which will be executed right before aborting. (since
+							v2.1.0)</td>
 					</tr>
 					<tr>
 						<td id="property-onCleanup" class="first" data-title="Property">onCleanup</td>
 						<td data-title="Type">Object</td>
 						<td data-title="Default">
-							<pre>{quux: function () {}}</pre>
+							<pre>{garply: function () {}}</pre>
 						</td>
-						<td class="last" data-title="Description">Hook object containing functions which would be executed after the
-							DOM cleanup. (since v2.1.0)</td>
+						<td class="last" data-title="Description">Functions which will be executed after the DOM is cleaned up.
+							(since v2.1.0)</td>
 					</tr>
 				</tbody>
 			</table>
@@ -808,13 +879,12 @@
 				Redistribution and use in source and binary forms, with or without modification, are permitted with the only
 				condition that redistributions of source code must retain the full copyright notice.</p>
 			<p class="margin-bottom-none">
-				Author <a href="https://web.archive.org/web/20180226021723/https://twitter.com/cornelboppart"
+				Author <a href="https://web.archive.org/web/20181228124120/https://twitter.com/cornelboppart"
 					target="_blank">@cornelboppart</a>
 			</p>
 
 		</div>
 	</div>
-
 </body>
 
 </html>
